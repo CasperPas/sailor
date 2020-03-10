@@ -521,7 +521,6 @@ class Sailor {
 
       RouteSettings routeSettings = RouteSettings(
         name: settings.name,
-        isInitialRoute: settings.isInitialRoute,
         arguments: argsWrapper.copyWith(
           baseArguments: baseArgs != null ? baseArgs : route.defaultArgs,
         ),
