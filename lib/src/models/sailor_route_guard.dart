@@ -4,8 +4,8 @@ import 'package:sailor/src/models/base_arguments.dart';
 import 'package:sailor/src/sailor.dart';
 
 typedef RouteGuard = Future<dynamic> Function(
-  BuildContext context,
-  BaseArguments args,
+  BuildContext? context,
+  BaseArguments? args,
   ParamMap paramMap,
 );
 
@@ -13,8 +13,8 @@ abstract class SailorRouteGuard {
   SailorRouteGuard();
 
   Future<dynamic> canOpen(
-    BuildContext context,
-    BaseArguments args,
+    BuildContext? context,
+    BaseArguments? args,
     ParamMap paramMap,
   );
 
@@ -30,8 +30,8 @@ class _SimpleRouteGuard extends SailorRouteGuard {
 
   @override
   Future<dynamic> canOpen(
-    BuildContext context,
-    BaseArguments args,
+    BuildContext? context,
+    BaseArguments? args,
     ParamMap paramMap,
   ) {
     return this.routeGuard(context, args, paramMap);

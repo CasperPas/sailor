@@ -4,23 +4,21 @@ import 'package:sailor/src/transitions/transition_component.dart';
 
 class BaseTransitionPageRoute extends PageRouteBuilder {
   final TransitionComponent transitionComponent;
-  final Duration duration;
-  final Curve curve;
+  final Duration? duration;
+  final Curve? curve;
   final bool useDefaultPageTransition;
-  final CustomSailorTransition customTransition;
+  final CustomSailorTransition? customTransition;
 
   BaseTransitionPageRoute({
-    this.transitionComponent,
-    @required WidgetBuilder builder,
-    @required RouteSettings settings,
+    required this.transitionComponent,
+    required WidgetBuilder? builder,
+    required RouteSettings? settings,
     this.duration,
     this.curve,
     this.useDefaultPageTransition = false,
     this.customTransition,
-  })  : assert(transitionComponent != null),
-        assert(useDefaultPageTransition != null),
-        super(
-            pageBuilder: (context, anim1, anim2) => builder(context),
+  }) : super(
+            pageBuilder: (context, anim1, anim2) => builder!(context),
             settings: settings);
 
   @override
@@ -28,7 +26,7 @@ class BaseTransitionPageRoute extends PageRouteBuilder {
       Animation<double> secondaryAnimation, Widget child) {
     if (this.customTransition != null) {
       return this
-          .customTransition
+          .customTransition!
           .buildTransition(context, animation, secondaryAnimation, child);
     }
 

@@ -1,16 +1,14 @@
 class SailorParam<T> {
   final String name;
-  final T defaultValue;
+  final T? defaultValue;
   final bool isRequired;
   final Type paramType;
 
   SailorParam({
-    this.name,
+    required this.name,
     this.defaultValue,
     this.isRequired = false,
-  })  : assert(name != null),
-        assert(isRequired != null),
-        paramType = T;
+  }) : paramType = T;
 
   @override
   operator ==(Object other) =>

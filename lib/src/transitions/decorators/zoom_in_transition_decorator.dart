@@ -3,9 +3,8 @@ import 'package:sailor/src/transitions/transition_component.dart';
 import 'package:sailor/src/transitions/transiton_decorator.dart';
 
 class ZoomInTransitionDecorator extends TransitionDecorator {
-  ZoomInTransitionDecorator({TransitionComponent transitionComponent})
-      : assert(transitionComponent != null),
-        super(transitionComponent: transitionComponent);
+  ZoomInTransitionDecorator({required TransitionComponent transitionComponent})
+      : super(transitionComponent: transitionComponent);
 
   @override
   Widget buildChildWithTransition(
@@ -15,7 +14,7 @@ class ZoomInTransitionDecorator extends TransitionDecorator {
       Widget child) {
     return ScaleTransition(
       scale: animation,
-      child: transitionComponent.buildChildWithTransition(
+      child: transitionComponent!.buildChildWithTransition(
           context, animation, secondaryAnimation, child),
     );
   }

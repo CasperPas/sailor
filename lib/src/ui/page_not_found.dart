@@ -4,16 +4,15 @@ import 'package:sailor/sailor.dart';
 
 class PageNotFound extends StatelessWidget {
   final String routeName;
-  final BaseArguments args;
-  final NavigationType navigationType;
+  final BaseArguments? args;
+  final NavigationType? navigationType;
 
   const PageNotFound({
-    Key key,
-    @required this.routeName,
+    Key? key,
+    required this.routeName,
     this.args,
     this.navigationType,
-  })  : assert(routeName != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +71,6 @@ class PageNotFound extends StatelessWidget {
   }
 
   TableRow _buildRow(String column1, String column2) {
-    assert(column1 != null);
-    assert(column2 != null);
-
     return TableRow(
       decoration: BoxDecoration(
         color: Colors.grey[100],

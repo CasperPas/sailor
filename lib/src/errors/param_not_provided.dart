@@ -1,12 +1,10 @@
-import 'package:meta/meta.dart';
-
 class ParameterNotProvidedError extends Error {
   final String paramKey;
   final String routeName;
 
   ParameterNotProvidedError({
-    @required this.routeName,
-    @required this.paramKey,
+    required this.routeName,
+    required this.paramKey,
   });
 
   @override

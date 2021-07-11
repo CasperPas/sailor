@@ -13,12 +13,12 @@ import 'package:sailor/src/transitions/transition_component.dart';
 
 class TransitionFactory {
   static PageRoute buildTransition({
-    RouteSettings settings,
-    WidgetBuilder builder,
-    Duration duration,
-    Curve curve,
-    List<SailorTransition> transitions,
-    CustomSailorTransition customTransition,
+    RouteSettings? settings,
+    WidgetBuilder? builder,
+    Duration? duration,
+    Curve? curve,
+    List<SailorTransition>? transitions,
+    CustomSailorTransition? customTransition,
   }) {
     TransitionComponent transitionComponent = ConcreteTransitionComponent();
 

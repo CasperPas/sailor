@@ -1,22 +1,20 @@
-import 'package:meta/meta.dart';
-
 enum _LogLevel { info, warning, error }
 
-String _logLevelToString(_LogLevel level) {
+String _logLevelToString(_LogLevel? level) {
   return level.toString().split(".")[1].toUpperCase();
 }
 
 class AppLogger {
-  static AppLogger _instance;
+  static late AppLogger _instance;
 
-  final bool isLoggerEnabled;
+  final bool? isLoggerEnabled;
 
   AppLogger._internal({
-    @required this.isLoggerEnabled,
+    required this.isLoggerEnabled,
   });
 
   static void init({
-    bool isLoggerEnabled,
+    bool? isLoggerEnabled,
   }) {
     _instance = AppLogger._internal(
       isLoggerEnabled: isLoggerEnabled,
@@ -40,10 +38,10 @@ class AppLogger {
   }
 
   void _log({
-    String message,
-    _LogLevel level,
+    String? message,
+    _LogLevel? level,
   }) {
-    if (this.isLoggerEnabled) {
+    if (this.isLoggerEnabled!) {
       print("[Sailor] ${_logLevelToString(level)} : $message");
     }
   }
